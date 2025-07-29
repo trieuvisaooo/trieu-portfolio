@@ -1,26 +1,79 @@
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@400&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@400&display=swap');
+
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --gradient-primary: #B5FCCD;
+  --gradient-secondary: #7AC6D2;
+  --hover-contact-gradient-text: linear-gradient(to right, #B5FCCD, #7AC6D2);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #ffffff;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Clash Display, Helvetica, sans-serif;
+}
+
+.header-section-font {
+  font-family: 'Clash Display', sans-serif;
+}
+
+
+
+.bg-hero-gradient {
+  background-image: radial-gradient(circle, #f2e6ee, #edc7ea, #deaaec, #c391f4, #977dff);
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-about-gradient {
+  /* background-image: linear-gradient(to bottom, #977dff, #886fff, #7761ff, #6454ff, #4b46ff, #3c3cf7, #2a32f0, #0a27e8, #0c1ed8, #0c15c7, #0a0ab8, #0600a8); */
+  background-image: linear-gradient(to right bottom, #f6f8d5, #e5f1ce, #d3eac8, #c2e3c5, #b0dcc2, #a1d4be, #92cbba, #84c3b7, #76b8b1, #68acaa, #5ba1a4, #4f959d);
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-projects-gradient {
+  background-image: linear-gradient(to bottom, #ffccf2, #f5baf1, #e8a9f1, #d79af4, #c08cf8, #af80fa, #9b75fc, #836bff, #715dff, #5d4fff, #4141ff, #0033ff);
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-contact-gradient {
+  /* background-image: radial-gradient(circle, #0033ff, #082aef, #0c22de, #0c19cf, #0b0fbf, #060daf, #030b9f, #00098f, #000c7a, #000c65, #000a51, #00033d); */
+  background-image: radial-gradient(circle, #7ac6d2, #65bdd3, #52b4d5, #42aad7, #399fd8, #2d96d9, #288ed9, #2c84d8, #257ad8, #2670d7, #2e65d5, #3a59d1);
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-contact-button-gradient {
+  background-image: linear-gradient(to right, #3D90D7, #3A59D1);
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-contact-bubble-gradient {
+  background-image: linear-gradient(to right, #B5FCCD, #7AC6D2);
+  background-size: cover;
+  background-position: center;
 }
