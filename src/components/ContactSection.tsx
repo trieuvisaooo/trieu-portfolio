@@ -61,7 +61,7 @@ const Contact = () => {
           <h2 className="text-4xl font-bold mb-4 text-white tracking-wide">Let's Connect</h2>
           <p className="text-white/80 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
             Ready to collaborate, discuss a project, or just chat? <br />
-            Drop me a line and let's make something amazing happen!
+            Drop me a line and let&apos;s make something amazing happen!
           </p>
         </div>
 
