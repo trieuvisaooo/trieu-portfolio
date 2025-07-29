@@ -1,3 +1,4 @@
+// ./src/app/projects/[slug]/page.tsx
 import { notFound } from 'next/navigation';
 import { projects } from '@/data/projects';
 import ProjectsHeader from '@/components/ProjectsHeader';
@@ -6,11 +7,19 @@ import ProjectMainBestie from '@/components/ProjectLayout/ProjectMainBestie';
 import ProjectMainAQI from '@/components/ProjectLayout/ProjectMainAQI';
 import ProjectMainCreditCard from '@/components/ProjectLayout/ProjectMainCreditCard';
 
+// Define the exact shape of a project
+interface Project {
+  slug: string;
+  title: string;
+  description: string;
+  // Add other fields that exist in your projects data, e.g.:
+  // image: string;
+  // date: string;
+  // tags: string[];
+}
 
 interface ProjectPageProps {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
 }
 
 const getMainComponent = (slug: string) => {
@@ -27,17 +36,19 @@ const getMainComponent = (slug: string) => {
 };
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
-    const { slug } = await params;
-    const meta = projects.find((p) => p.slug === slug);
-    const MainComponent = getMainComponent(slug);
+  const { slug } = await params;
+  const meta = projects.find((p: Project) => p.slug === slug);
+  const MainComponent = getMainComponent(slug);
 
-    if (!meta || !MainComponent) return notFound();
+  if (!meta || !MainComponent) {
+    return notFound();
+  }
 
-    return (
-        <div className="max-w-4xl mx-auto px-6 py-16">
-            <ProjectsHeader />  
-            <ProjectIntro {...meta} />
-            {MainComponent}
-        </div>
-    );
+  return (
+    <div className="max-w-4xl mx-auto px-6 py-16">
+      <ProjectsHeader />
+      <ProjectIntro {...meta} />
+      {MainComponent}
+    </div>
+  );
 }
